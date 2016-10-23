@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		A868EFED6D1B3C424FF7B019 /* libPods-ChatRoomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42165D9DC0275BC272508705 /* libPods-ChatRoomTests.a */; };
 		B066D7F91DBBD25C00474A4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */; };
+		B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */; };
+		B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8291DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m */; };
+		B066D8321DBCCA1B00474A4E /* KCHChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D82B1DBCCA1B00474A4E /* KCHChatViewController.m */; };
+		B066D8331DBCCA1B00474A4E /* KCHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D82D1DBCCA1B00474A4E /* KCHLoginViewController.m */; };
+		B066D8381DBCD86D00474A4E /* RoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8361DBCD86D00474A4E /* RoomTableViewCell.m */; };
+		B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */; };
 		B0D3D9481DBB54FA009FEBEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9471DBB54FA009FEBEE /* main.m */; };
 		B0D3D94B1DBB54FA009FEBEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */; };
-		B0D3D94E1DBB54FA009FEBEE /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D94D1DBB54FA009FEBEE /* FirstViewController.m */; };
-		B0D3D9511DBB54FA009FEBEE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9501DBB54FA009FEBEE /* SecondViewController.m */; };
 		B0D3D9541DBB54FA009FEBEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9521DBB54FA009FEBEE /* Main.storyboard */; };
 		B0D3D9561DBB54FA009FEBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9551DBB54FA009FEBEE /* Assets.xcassets */; };
 		B0D3D9591DBB54FA009FEBEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9571DBB54FA009FEBEE /* LaunchScreen.storyboard */; };
@@ -47,14 +51,22 @@
 		841792228BC65E17E7C72EA2 /* Pods-ChatRoomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomUITests/Pods-ChatRoomUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A628D0FBFB3A0125B2B7843 /* Pods-ChatRoomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomTests/Pods-ChatRoomTests.release.xcconfig"; sourceTree = "<group>"; };
 		B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B066D8261DBCCA1B00474A4E /* KCHAllRoomsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHAllRoomsTableViewController.h; sourceTree = "<group>"; };
+		B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAllRoomsTableViewController.m; sourceTree = "<group>"; };
+		B066D8281DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHChatingRoomsTableViewController.h; sourceTree = "<group>"; };
+		B066D8291DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHChatingRoomsTableViewController.m; sourceTree = "<group>"; };
+		B066D82A1DBCCA1B00474A4E /* KCHChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHChatViewController.h; sourceTree = "<group>"; };
+		B066D82B1DBCCA1B00474A4E /* KCHChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHChatViewController.m; sourceTree = "<group>"; };
+		B066D82C1DBCCA1B00474A4E /* KCHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHLoginViewController.h; sourceTree = "<group>"; };
+		B066D82D1DBCCA1B00474A4E /* KCHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHLoginViewController.m; sourceTree = "<group>"; };
+		B066D8351DBCD86D00474A4E /* RoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomTableViewCell.h; sourceTree = "<group>"; };
+		B066D8361DBCD86D00474A4E /* RoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomTableViewCell.m; sourceTree = "<group>"; };
+		B066D83D1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHAccountSettingsTableViewController.h; sourceTree = "<group>"; };
+		B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAccountSettingsTableViewController.m; sourceTree = "<group>"; };
 		B0D3D9431DBB54FA009FEBEE /* ChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D3D9471DBB54FA009FEBEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0D3D9491DBB54FA009FEBEE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0D3D94C1DBB54FA009FEBEE /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		B0D3D94D1DBB54FA009FEBEE /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		B0D3D94F1DBB54FA009FEBEE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		B0D3D9501DBB54FA009FEBEE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		B0D3D9531DBB54FA009FEBEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0D3D9551DBB54FA009FEBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0D3D9581DBB54FA009FEBEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,6 +133,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B066D8031DBCC67B00474A4E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B066D82C1DBCCA1B00474A4E /* KCHLoginViewController.h */,
+				B066D82D1DBCCA1B00474A4E /* KCHLoginViewController.m */,
+				B066D8281DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.h */,
+				B066D8291DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m */,
+				B066D8261DBCCA1B00474A4E /* KCHAllRoomsTableViewController.h */,
+				B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */,
+				B066D82A1DBCCA1B00474A4E /* KCHChatViewController.h */,
+				B066D82B1DBCCA1B00474A4E /* KCHChatViewController.m */,
+				B066D83D1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.h */,
+				B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B066D8341DBCD84500474A4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B066D8351DBCD86D00474A4E /* RoomTableViewCell.h */,
+				B066D8361DBCD86D00474A4E /* RoomTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B0D3D93A1DBB54FA009FEBEE = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +187,8 @@
 				B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */,
 				B0D3D9491DBB54FA009FEBEE /* AppDelegate.h */,
 				B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */,
-				B0D3D94C1DBB54FA009FEBEE /* FirstViewController.h */,
-				B0D3D94D1DBB54FA009FEBEE /* FirstViewController.m */,
-				B0D3D94F1DBB54FA009FEBEE /* SecondViewController.h */,
-				B0D3D9501DBB54FA009FEBEE /* SecondViewController.m */,
+				B066D8031DBCC67B00474A4E /* ViewControllers */,
+				B066D8341DBCD84500474A4E /* Views */,
 				B0D3D9521DBB54FA009FEBEE /* Main.storyboard */,
 				B0D3D9551DBB54FA009FEBEE /* Assets.xcassets */,
 				B0D3D9571DBB54FA009FEBEE /* LaunchScreen.storyboard */,
@@ -472,10 +508,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D3D9511DBB54FA009FEBEE /* SecondViewController.m in Sources */,
+				B066D8331DBCCA1B00474A4E /* KCHLoginViewController.m in Sources */,
+				B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */,
+				B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */,
+				B066D8321DBCCA1B00474A4E /* KCHChatViewController.m in Sources */,
 				B0D3D94B1DBB54FA009FEBEE /* AppDelegate.m in Sources */,
-				B0D3D94E1DBB54FA009FEBEE /* FirstViewController.m in Sources */,
+				B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */,
 				B0D3D9481DBB54FA009FEBEE /* main.m in Sources */,
+				B066D8381DBCD86D00474A4E /* RoomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
