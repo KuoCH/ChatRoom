@@ -8,9 +8,7 @@
 
 #import "KCHLoginViewController.h"
 
-@interface KCHLoginViewController () {
-    NSTimer *_timer;
-}
+@interface KCHLoginViewController ()
 
 @end
 
@@ -19,24 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UITapGestureRecognizer *singleTapRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:singleTapRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        [self performSegueWithIdentifier:@"afterLogin" sender:nil];
-    }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
 }
 
 /*
@@ -50,8 +37,27 @@
 */
 
 - (IBAction)toSignUp:(id)sender {
+    [self dismissKeyboard];
+    NSString *email = self.emailField.text;
+    NSString *password = self.passwordField.text;
+    // TODO: use email & password to sign up
+    [self loginPassed];
 }
 
 - (IBAction)toLogin:(id)sender {
+    [self dismissKeyboard];
+    NSString *email = self.emailField.text;
+    NSString *password = self.passwordField.text;
+    // TODO: use email & password to log in
+    [self loginPassed];
+}
+
+- (void)loginPassed {
+    [self performSegueWithIdentifier:@"afterLogin" sender:nil];
+}
+
+- (void)dismissKeyboard {
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
 }
 @end

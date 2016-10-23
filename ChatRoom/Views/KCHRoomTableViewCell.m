@@ -1,14 +1,14 @@
 //
-//  RoomTableViewCell.m
+//  KCHRoomTableViewCell.m
 //  ChatRoom
 //
 //  Created by Chia-Han Kuo on 23/10/2016.
 //  Copyright © 2016 Chia-Han Kuo. All rights reserved.
 //
 
-#import "RoomTableViewCell.h"
+#import "KCHRoomTableViewCell.h"
 
-@implementation RoomTableViewCell
+@implementation KCHRoomTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

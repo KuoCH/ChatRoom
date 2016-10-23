@@ -1,5 +1,5 @@
 //
-//  RoomTableViewCell.h
+//  KCHRoomTableViewCell.h
 //  ChatRoom
 //
 //  Created by Chia-Han Kuo on 23/10/2016.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#define ROOM_CELL_IDENTIFIER @"RoomCell"
 
-@interface RoomTableViewCell : UITableViewCell
+@interface KCHRoomTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *roomNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *peopleCountLabel;
 
