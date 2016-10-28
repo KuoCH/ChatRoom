@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A868EFED6D1B3C424FF7B019 /* libPods-ChatRoomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42165D9DC0275BC272508705 /* libPods-ChatRoomTests.a */; };
+		B02A17A61DC3C0A300AD9764 /* KCHViews.m in Sources */ = {isa = PBXBuildFile; fileRef = B02A17A51DC3C0A300AD9764 /* KCHViews.m */; };
 		B066D7F91DBBD25C00474A4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */; };
 		B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */; };
 		B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8291DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m */; };
@@ -51,6 +52,10 @@
 		5EE9F292D06E12F978D21A7E /* Pods-ChatRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoom/Pods-ChatRoom.debug.xcconfig"; sourceTree = "<group>"; };
 		841792228BC65E17E7C72EA2 /* Pods-ChatRoomUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomUITests/Pods-ChatRoomUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9A628D0FBFB3A0125B2B7843 /* Pods-ChatRoomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomTests/Pods-ChatRoomTests.release.xcconfig"; sourceTree = "<group>"; };
+		B02A17A21DC3C07C00AD9764 /* KCHSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHSingleton.h; sourceTree = "<group>"; };
+		B02A17A41DC3C0A300AD9764 /* KCHViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHViews.h; sourceTree = "<group>"; };
+		B02A17A51DC3C0A300AD9764 /* KCHViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHViews.m; sourceTree = "<group>"; };
+		B02A17A71DC3C0BE00AD9764 /* ChatRoom-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Prefix.pch"; sourceTree = "<group>"; };
 		B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B066D8261DBCCA1B00474A4E /* KCHAllRoomsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHAllRoomsTableViewController.h; sourceTree = "<group>"; };
 		B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAllRoomsTableViewController.m; sourceTree = "<group>"; };
@@ -136,6 +141,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B02A17A11DC3C06400AD9764 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				B02A17A21DC3C07C00AD9764 /* KCHSingleton.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		B02A17A31DC3C08F00AD9764 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B02A17A41DC3C0A300AD9764 /* KCHViews.h */,
+				B02A17A51DC3C0A300AD9764 /* KCHViews.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B066D8031DBCC67B00474A4E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +214,8 @@
 				B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */,
 				B066D8031DBCC67B00474A4E /* ViewControllers */,
 				B066D8341DBCD84500474A4E /* Views */,
+				B02A17A11DC3C06400AD9764 /* Macros */,
+				B02A17A31DC3C08F00AD9764 /* Utils */,
 				B0D3D9521DBB54FA009FEBEE /* Main.storyboard */,
 				B0D3D9551DBB54FA009FEBEE /* Assets.xcassets */,
 				B0D3D9571DBB54FA009FEBEE /* LaunchScreen.storyboard */,
@@ -206,6 +230,7 @@
 		B0D3D9461DBB54FA009FEBEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B02A17A71DC3C0BE00AD9764 /* ChatRoom-Prefix.pch */,
 				B0D3D9471DBB54FA009FEBEE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -516,6 +541,7 @@
 				B066D8331DBCCA1B00474A4E /* KCHLoginViewController.m in Sources */,
 				B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */,
 				B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */,
+				B02A17A61DC3C0A300AD9764 /* KCHViews.m in Sources */,
 				B066D8321DBCCA1B00474A4E /* KCHChatViewController.m in Sources */,
 				B0D3D94B1DBB54FA009FEBEE /* AppDelegate.m in Sources */,
 				B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */,
@@ -672,6 +698,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UTCMZSR924;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChatRoom/ChatRoom-Prefix.pch";
 				INFOPLIST_FILE = ChatRoom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoom;
@@ -685,6 +713,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UTCMZSR924;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChatRoom/ChatRoom-Prefix.pch";
 				INFOPLIST_FILE = ChatRoom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoom;

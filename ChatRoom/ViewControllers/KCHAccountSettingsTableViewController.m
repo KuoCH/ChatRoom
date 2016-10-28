@@ -7,11 +7,13 @@
 //
 
 #import "KCHAccountSettingsTableViewController.h"
+@import Firebase;
 #define ACCOUNT_SETTING_CELL_IDENTIFIER @"AccountSettingCell"
 
 typedef enum : NSUInteger {
     ChangePassword = 0,
     Logout,
+    DeleteAccount,
     SettingsCount,
 } AccountSettings;
 
@@ -60,6 +62,9 @@ typedef enum : NSUInteger {
         case Logout:
             title = @"Logout";
             break;
+        case DeleteAccount:
+            title = @"Delete Account";
+            break;
         default:
             break;
     }
@@ -71,17 +76,20 @@ typedef enum : NSUInteger {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case ChangePassword:
-            [self toChangePassword];
+            [self showChangePasswordAlert];
             break;
         case Logout:
             [self toLogout];
+            break;
+        case DeleteAccount:
+            [self toDeleteAccount];
             break;
         default:
             break;
     }
 }
 
-- (void)toChangePassword {
+- (void)showChangePasswordAlert {
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Change Password"
                                           message:nil
@@ -91,19 +99,77 @@ typedef enum : NSUInteger {
         textField.placeholder = @"New Password";
         textField.secureTextEntry = YES;
     }];
+    __weak typeof(self) _weakSelf = self;
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:@"OK"
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action) {
                                    UITextField *passwordField = alertController.textFields.firstObject;
-                                   NSLog(@"%@", passwordField.text);
-                                   // TODO: change user's password
+                                   [_weakSelf toChangePassword:passwordField.text];
                                }];
     [alertController addAction:okAction];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+    [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)toChangePassword:(NSString *)newPassword {
+    if (newPassword.length == 0) {
+        [KCHViews showAlertInView:self
+                            title:@"Empty Password"
+                          message:@"Please input password"
+                          handler:nil];
+        return;
+    }
+    [KCHViews showLoadingInView:self.view];
+    __weak typeof(self) _weakSelf = self;
+    [[FIRAuth auth].currentUser updatePassword:newPassword
+                                    completion:^(NSError * _Nullable error) {
+                                        [KCHViews hideLoadingInView:_weakSelf.view];
+                                        if (error) {
+                                            NSString *msg = [error localizedDescription] ? : @"Change password failed.";
+                                            void (^ handler)(UIAlertAction *action) = nil;
+                                            switch (error.code) {
+                                                case FIRAuthErrorCodeRequiresRecentLogin: {
+                                                    handler = ^(UIAlertAction *action) {
+                                                        [_weakSelf backToLogin];
+                                                    };
+                                                    break;
+                                                }
+                                            }
+                                            [KCHViews showAlertInView:_weakSelf
+                                                                title:@"Oops"
+                                                              message:msg
+                                                              handler:handler];
+                                        } else {
+                                            [KCHViews showAlertInView:_weakSelf
+                                                                title:@"Success"
+                                                              message:@"Change password successfully."
+                                                              handler:nil];
+                                        }
+                                    }];
+}
+
 - (void)toLogout {
+    [KCHViews showLoadingInView:self.view];
+    [[FIRAuth auth] signOut:nil];
+    [KCHViews hideLoadingInView:self.view];
+    [self backToLogin];
+}
+
+- (void)toDeleteAccount {
+    [KCHViews showLoadingInView:self.view];
+    __weak typeof(self) _weakSelf = self;
+    [[FIRAuth auth].currentUser deleteWithCompletion:^(NSError * _Nullable error) {
+        [KCHViews hideLoadingInView:_weakSelf.view];
+        [_weakSelf backToLogin];
+    }];
+}
+
+- (void)backToLogin {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
