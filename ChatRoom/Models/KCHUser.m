@@ -31,7 +31,7 @@
     if (self) {
         self.uid = uid;
         NSDictionary *createdRoomsMap = info[KEY_CREATED_ROOMS];
-        self.chatingRooms = createdRoomsMap ? [createdRoomsMap allKeys].mutableCopy : [NSMutableArray array];
+        self.createdRooms = createdRoomsMap ? [createdRoomsMap allKeys].mutableCopy : [NSMutableArray array];
         NSDictionary *chatRoomsMap = info[KEY_CHATING_ROOMS];
         self.chatingRooms = chatRoomsMap ? [chatRoomsMap allKeys].mutableCopy : [NSMutableArray array];
     }
