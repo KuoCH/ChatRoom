@@ -51,7 +51,8 @@
     }
     KCHRoom *room = _rooms[indexPath.row];
     cell.roomNameLabel.text = room.name;
-    cell.peopleCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)room.participant.count];
+    // TODO: need to update room list while it changes
+//    cell.peopleCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)room.participant.count];
     cell.tag = indexPath.row;
     return cell;
 }

@@ -18,7 +18,10 @@
 		B066D8331DBCCA1B00474A4E /* KCHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D82D1DBCCA1B00474A4E /* KCHLoginViewController.m */; };
 		B066D8381DBCD86D00474A4E /* KCHRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8361DBCD86D00474A4E /* KCHRoomTableViewCell.m */; };
 		B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */; };
+		B07516EB1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07516EA1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m */; };
 		B08814071DBD13C8002AD07B /* KCHReplaceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B08814061DBD13C8002AD07B /* KCHReplaceSegue.m */; };
+		B0BEB3EF1DC79E49002B8FBE /* KCHMessagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BEB3EE1DC79E49002B8FBE /* KCHMessagesManager.m */; };
+		B0BEB3F21DC79FE8002B8FBE /* KCHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BEB3F11DC79FE8002B8FBE /* KCHMessage.m */; };
 		B0C4E81F1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */; };
 		B0C4E8211DC6630800FFAA58 /* KCHRoomManagerAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */; };
 		B0D3D9481DBB54FA009FEBEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9471DBB54FA009FEBEE /* main.m */; };
@@ -80,8 +83,13 @@
 		B066D8361DBCD86D00474A4E /* KCHRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomTableViewCell.m; sourceTree = "<group>"; };
 		B066D83D1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHAccountSettingsTableViewController.h; sourceTree = "<group>"; };
 		B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAccountSettingsTableViewController.m; sourceTree = "<group>"; };
+		B07516EA1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHMessagesManagerTests.m; sourceTree = "<group>"; };
 		B08814051DBD13C8002AD07B /* KCHReplaceSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHReplaceSegue.h; sourceTree = "<group>"; };
 		B08814061DBD13C8002AD07B /* KCHReplaceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHReplaceSegue.m; sourceTree = "<group>"; };
+		B0BEB3ED1DC79E49002B8FBE /* KCHMessagesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHMessagesManager.h; sourceTree = "<group>"; };
+		B0BEB3EE1DC79E49002B8FBE /* KCHMessagesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHMessagesManager.m; sourceTree = "<group>"; };
+		B0BEB3F01DC79FE8002B8FBE /* KCHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHMessage.h; sourceTree = "<group>"; };
+		B0BEB3F11DC79FE8002B8FBE /* KCHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHMessage.m; sourceTree = "<group>"; };
 		B0C4E81D1DC5DCD700FFAA58 /* ChatRoomTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoomTests-Prefix.pch"; sourceTree = "<group>"; };
 		B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomManagerRoomTests.m; sourceTree = "<group>"; };
 		B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomManagerAccountTests.m; sourceTree = "<group>"; };
@@ -184,6 +192,8 @@
 				B0524AE61DC4F7C400D3BC20 /* KCHRoom.m */,
 				B0D933751DC5337300A4A7E0 /* KCHUser.h */,
 				B0D933761DC5337300A4A7E0 /* KCHUser.m */,
+				B0BEB3F01DC79FE8002B8FBE /* KCHMessage.h */,
+				B0BEB3F11DC79FE8002B8FBE /* KCHMessage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +203,8 @@
 			children = (
 				B0524AE21DC4F1C400D3BC20 /* KCHRoomsManager.h */,
 				B0524AE31DC4F1C400D3BC20 /* KCHRoomsManager.m */,
+				B0BEB3ED1DC79E49002B8FBE /* KCHMessagesManager.h */,
+				B0BEB3EE1DC79E49002B8FBE /* KCHMessagesManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -287,6 +299,7 @@
 				B0C4E81D1DC5DCD700FFAA58 /* ChatRoomTests-Prefix.pch */,
 				B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */,
 				B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */,
+				B07516EA1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m */,
 			);
 			path = ChatRoomTests;
 			sourceTree = "<group>";
@@ -586,6 +599,8 @@
 			files = (
 				B066D8331DBCCA1B00474A4E /* KCHLoginViewController.m in Sources */,
 				B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */,
+				B0BEB3F21DC79FE8002B8FBE /* KCHMessage.m in Sources */,
+				B0BEB3EF1DC79E49002B8FBE /* KCHMessagesManager.m in Sources */,
 				B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */,
 				B02A17A61DC3C0A300AD9764 /* KCHViews.m in Sources */,
 				B066D8321DBCCA1B00474A4E /* KCHChatViewController.m in Sources */,
@@ -607,6 +622,7 @@
 			files = (
 				B0D3D9641DBB54FA009FEBEE /* ChatRoomTests.m in Sources */,
 				B0C4E8211DC6630800FFAA58 /* KCHRoomManagerAccountTests.m in Sources */,
+				B07516EB1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m in Sources */,
 				B0C4E81F1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

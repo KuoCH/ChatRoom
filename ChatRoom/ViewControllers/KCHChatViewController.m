@@ -7,10 +7,11 @@
 //
 
 #import "KCHChatViewController.h"
+#import "KCHMessagesManager.h"
 #define MSG_CELL_IDENTIFIER @"MsgCell"
 
 @interface KCHChatViewController () {
-    NSArray *_data;
+    NSArray<KCHMessage *> *_messages;
     NSDateFormatter *_dateFormatter;
 }
 
@@ -19,38 +20,9 @@
 @implementation KCHChatViewController
 
 - (void)viewDidLoad {
-    // TODO: replace this with Message model
-    _data = @[
-              @{
-                  @"from": @"SomeFirstOne@somewhere.com",
-                  @"msg": @"kerker",
-                  @"timestamp": @(1477239227),
-                  },
-              @{
-                  @"from": @"SomeSecondOne@somewhere.com",
-                  @"msg": @"QAQ",
-                  @"timestamp": @(1477239217),
-                  },
-              @{
-                  @"from": @"SomeFirstOne@somewhere.com",
-                  @"msg": @"Oh",
-                  @"timestamp": @(1477239127),
-                  },
-              @{
-                  @"from": @"SomeFirstOne@somewhere.com",
-                  @"msg": @"blablabla",
-                  @"timestamp": @(1477231227),
-                  },
-              @{
-                  @"from": @"SomeFirstOne@somewhere.com",
-                  @"msg": @"Gosh",
-                  @"timestamp": @(1477219227),
-                  },
-              ];
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateFormat:@"MM/d hh:mm:ss"];
     [super viewDidLoad];
-    // TODO: replace this with Room Mode
     self.navigationItem.title = self.room.name;
     // To reverse table view:
     // Ref: http://stackoverflow.com/a/36762194
@@ -68,9 +40,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+    WEAK_SELF
+    [[KCHMessagesManager sharedManager] observeMessagesOfRoom:self.room.uid withCompletion:^(NSArray<KCHMessage *> *messages) {
+        [KCHViews hideLoadingInView:_weakSelf.view];
+        _messages = messages;
+        [_weakSelf.messageTable reloadData];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [[KCHMessagesManager sharedManager] stopObserving:self.room.uid];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
@@ -92,7 +72,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _data.count;
+    return _messages.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,10 +80,10 @@
     if (!cell) {
         cell = [[KCHChatMsgCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MSG_CELL_IDENTIFIER];
     }
-    NSDictionary *room = _data[indexPath.row];
-    cell.fromLabel.text = room[@"from"];
-    cell.messageLabel.text = room[@"msg"];
-    cell.timeLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:((NSNumber *)room[@"timestamp"]).doubleValue]];
+    KCHMessage *message = _messages[indexPath.row];
+    cell.fromLabel.text = message.from;
+    cell.messageLabel.text = message.content;
+    cell.timeLabel.text = [_dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:message.ts]];
     // To reverse table view:
     // Ref: http://stackoverflow.com/a/36762194
     cell.transform = CGAffineTransformMakeRotation(M_PI);
@@ -164,7 +144,10 @@
     self.inputField.text = @"";
     [self dismissKeyboard];
     if (newMsg.length > 0) {
-        // TODO: send the msg
+        [[KCHMessagesManager sharedManager] sendMessageToRoom:self.room.uid
+                                                     WithType:@"text"
+                                                      content:newMsg
+                                               withCompletion:nil];
     }
 }
 @end
