@@ -7,6 +7,7 @@
 //
 
 #import "KCHAccountSettingsTableViewController.h"
+#import "KCHRoomsManager.h"
 @import Firebase;
 #define ACCOUNT_SETTING_CELL_IDENTIFIER @"AccountSettingCell"
 
@@ -99,7 +100,7 @@ typedef enum : NSUInteger {
         textField.placeholder = @"New Password";
         textField.secureTextEntry = YES;
     }];
-    __weak typeof(self) _weakSelf = self;
+    WEAK_SELF
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:@"OK"
                                style:UIAlertActionStyleDefault
@@ -125,47 +126,53 @@ typedef enum : NSUInteger {
         return;
     }
     [KCHViews showLoadingInView:self.view];
-    __weak typeof(self) _weakSelf = self;
-    [[FIRAuth auth].currentUser updatePassword:newPassword
-                                    completion:^(NSError * _Nullable error) {
-                                        [KCHViews hideLoadingInView:_weakSelf.view];
-                                        if (error) {
-                                            NSString *msg = [error localizedDescription] ? : @"Change password failed.";
-                                            void (^ handler)(UIAlertAction *action) = nil;
-                                            switch (error.code) {
-                                                case FIRAuthErrorCodeRequiresRecentLogin: {
-                                                    handler = ^(UIAlertAction *action) {
-                                                        [_weakSelf backToLogin];
-                                                    };
-                                                    break;
-                                                }
-                                            }
-                                            [KCHViews showAlertInView:_weakSelf
-                                                                title:@"Oops"
-                                                              message:msg
-                                                              handler:handler];
-                                        } else {
-                                            [KCHViews showAlertInView:_weakSelf
-                                                                title:@"Success"
-                                                              message:@"Change password successfully."
-                                                              handler:nil];
-                                        }
-                                    }];
+    WEAK_SELF
+    [[KCHRoomsManager sharedManager] changePasswor:newPassword completion:^(NSError *error) {
+        [KCHViews hideLoadingInView:_weakSelf.view];
+        if (error) {
+            NSString *msg = [error localizedDescription] ? : @"Change password failed.";
+            void (^ handler)(UIAlertAction *action) = nil;
+            switch (error.code) {
+                case FIRAuthErrorCodeRequiresRecentLogin: {
+                    handler = ^(UIAlertAction *action) {
+                        [_weakSelf backToLogin];
+                    };
+                    break;
+                }
+            }
+            [KCHViews showAlertInView:_weakSelf
+                                title:@"Oops"
+                              message:msg
+                              handler:handler];
+        } else {
+            [KCHViews showAlertInView:_weakSelf
+                                title:@"Success"
+                              message:@"Change password successfully."
+                              handler:nil];
+        }
+    }];
 }
 
 - (void)toLogout {
     [KCHViews showLoadingInView:self.view];
-    [[FIRAuth auth] signOut:nil];
+    [[KCHRoomsManager sharedManager] logout];
     [KCHViews hideLoadingInView:self.view];
     [self backToLogin];
 }
 
 - (void)toDeleteAccount {
     [KCHViews showLoadingInView:self.view];
-    __weak typeof(self) _weakSelf = self;
-    [[FIRAuth auth].currentUser deleteWithCompletion:^(NSError * _Nullable error) {
+    WEAK_SELF
+    [[KCHRoomsManager sharedManager] deleteAccount:^(NSError *error){
         [KCHViews hideLoadingInView:_weakSelf.view];
-        [_weakSelf backToLogin];
+        if (error) {
+            [KCHViews showAlertInView:_weakSelf
+                                title:@"Delete failed"
+                              message:error.localizedDescription
+                              handler:nil];
+        } else {
+            [_weakSelf backToLogin];
+        }
     }];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "KCHLoginViewController.h"
-@import Firebase;
+#import "KCHRoomsManager.h"
 
 @interface KCHLoginViewController ()
 
@@ -42,21 +42,21 @@
     NSString *email = self.emailField.text;
     NSString *password = self.passwordField.text;
     [KCHViews showLoadingInView:self.view];
-    __weak typeof(self) _weakSelf = self;
-    [[FIRAuth auth] createUserWithEmail:email
-                               password:password
-                             completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-                                 [KCHViews hideLoadingInView:_weakSelf.view];
-                                 if (error) {
-                                     NSString *msg = [error localizedDescription] ? : @"Sign up failed";
-                                     [KCHViews showAlertInView:_weakSelf
-                                                         title:@"Oops"
-                                                       message:msg
-                                                       handler:nil];
-                                 } else{
-                                     [_weakSelf loginPassed];
-                                 }
-                             }];
+    WEAK_SELF
+    [[KCHRoomsManager sharedManager] signUpWithEmail:email
+                                            password:password
+                                          completion:^(NSError *error) {
+                                              if (error) {
+                                                  [KCHViews hideLoadingInView:_weakSelf.view];
+                                                  NSString *msg = [error localizedDescription] ? : @"Sign up failed";
+                                                  [KCHViews showAlertInView:_weakSelf
+                                                                      title:@"Oops"
+                                                                    message:msg
+                                                                    handler:nil];
+                                              } else{
+                                                  [_weakSelf loginPassed];
+                                              }
+                                          }];
 }
 
 - (IBAction)toLogin:(id)sender {
@@ -64,24 +64,25 @@
     NSString *email = self.emailField.text;
     NSString *password = self.passwordField.text;
     [KCHViews showLoadingInView:self.view];
-    __weak typeof(self) _weakSelf = self;
-    [[FIRAuth auth] signInWithEmail:email
-                           password:password
-                         completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
-                                 [KCHViews hideLoadingInView:_weakSelf.view];
-                                 if (error) {
-                                     NSString *msg = [error localizedDescription] ? : @"Log in failed";
-                                     [KCHViews showAlertInView:_weakSelf
-                                                         title:@"Oops"
-                                                       message:msg
-                                                       handler:nil];
-                                 } else{
-                                     [_weakSelf loginPassed];
-                                 }
-                         }];
+    WEAK_SELF
+    [[KCHRoomsManager sharedManager] loginWithEmail:email
+                                           password:password
+                                         completion:^(NSError *error) {
+                                             if (error) {
+                                                 [KCHViews hideLoadingInView:_weakSelf.view];
+                                                 NSString *msg = [error localizedDescription] ? : @"Log in failed";
+                                                 [KCHViews showAlertInView:_weakSelf
+                                                                     title:@"Oops"
+                                                                   message:msg
+                                                                   handler:nil];
+                                             } else{
+                                                 [_weakSelf loginPassed];
+                                             }
+                                         }];
 }
 
 - (void)loginPassed {
+    [KCHViews hideLoadingInView:self.view];
     [self performSegueWithIdentifier:@"afterLogin" sender:nil];
 }
 

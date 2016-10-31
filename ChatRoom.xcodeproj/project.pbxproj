@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A868EFED6D1B3C424FF7B019 /* libPods-ChatRoomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42165D9DC0275BC272508705 /* libPods-ChatRoomTests.a */; };
 		B02A17A61DC3C0A300AD9764 /* KCHViews.m in Sources */ = {isa = PBXBuildFile; fileRef = B02A17A51DC3C0A300AD9764 /* KCHViews.m */; };
+		B0524AE41DC4F1C400D3BC20 /* KCHRoomsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0524AE31DC4F1C400D3BC20 /* KCHRoomsManager.m */; };
+		B0524AE71DC4F7C400D3BC20 /* KCHRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = B0524AE61DC4F7C400D3BC20 /* KCHRoom.m */; };
 		B066D7F91DBBD25C00474A4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */; };
 		B066D8301DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */; };
 		B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8291DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m */; };
@@ -17,6 +19,8 @@
 		B066D8381DBCD86D00474A4E /* KCHRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D8361DBCD86D00474A4E /* KCHRoomTableViewCell.m */; };
 		B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */; };
 		B08814071DBD13C8002AD07B /* KCHReplaceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = B08814061DBD13C8002AD07B /* KCHReplaceSegue.m */; };
+		B0C4E81F1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */; };
+		B0C4E8211DC6630800FFAA58 /* KCHRoomManagerAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */; };
 		B0D3D9481DBB54FA009FEBEE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9471DBB54FA009FEBEE /* main.m */; };
 		B0D3D94B1DBB54FA009FEBEE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */; };
 		B0D3D9541DBB54FA009FEBEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9521DBB54FA009FEBEE /* Main.storyboard */; };
@@ -24,6 +28,8 @@
 		B0D3D9591DBB54FA009FEBEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9571DBB54FA009FEBEE /* LaunchScreen.storyboard */; };
 		B0D3D9641DBB54FA009FEBEE /* ChatRoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9631DBB54FA009FEBEE /* ChatRoomTests.m */; };
 		B0D3D96F1DBB54FB009FEBEE /* ChatRoomUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D96E1DBB54FB009FEBEE /* ChatRoomUITests.m */; };
+		B0D933771DC5337300A4A7E0 /* KCHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D933761DC5337300A4A7E0 /* KCHUser.m */; };
+		B0D9337A1DC540CD00A4A7E0 /* KCHError.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D933791DC540CD00A4A7E0 /* KCHError.m */; };
 		CB44F3CA92B4CC93EE3CEF62 /* libPods-ChatRoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E19DFB8318CA5C0D70175E /* libPods-ChatRoom.a */; };
 		DC59C656829E34C860FA6134 /* libPods-ChatRoomUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7B593A233860534406EB1B /* libPods-ChatRoomUITests.a */; };
 /* End PBXBuildFile section */
@@ -56,6 +62,11 @@
 		B02A17A41DC3C0A300AD9764 /* KCHViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHViews.h; sourceTree = "<group>"; };
 		B02A17A51DC3C0A300AD9764 /* KCHViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHViews.m; sourceTree = "<group>"; };
 		B02A17A71DC3C0BE00AD9764 /* ChatRoom-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatRoom-Prefix.pch"; sourceTree = "<group>"; };
+		B0524AE21DC4F1C400D3BC20 /* KCHRoomsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHRoomsManager.h; sourceTree = "<group>"; };
+		B0524AE31DC4F1C400D3BC20 /* KCHRoomsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomsManager.m; sourceTree = "<group>"; };
+		B0524AE51DC4F7C400D3BC20 /* KCHRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHRoom.h; sourceTree = "<group>"; };
+		B0524AE61DC4F7C400D3BC20 /* KCHRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoom.m; sourceTree = "<group>"; };
+		B0524AE81DC5126900D3BC20 /* KCHMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KCHMacros.h; sourceTree = "<group>"; };
 		B066D7F81DBBD25C00474A4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B066D8261DBCCA1B00474A4E /* KCHAllRoomsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHAllRoomsTableViewController.h; sourceTree = "<group>"; };
 		B066D8271DBCCA1B00474A4E /* KCHAllRoomsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAllRoomsTableViewController.m; sourceTree = "<group>"; };
@@ -71,6 +82,9 @@
 		B066D83E1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHAccountSettingsTableViewController.m; sourceTree = "<group>"; };
 		B08814051DBD13C8002AD07B /* KCHReplaceSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHReplaceSegue.h; sourceTree = "<group>"; };
 		B08814061DBD13C8002AD07B /* KCHReplaceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHReplaceSegue.m; sourceTree = "<group>"; };
+		B0C4E81D1DC5DCD700FFAA58 /* ChatRoomTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatRoomTests-Prefix.pch"; sourceTree = "<group>"; };
+		B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomManagerRoomTests.m; sourceTree = "<group>"; };
+		B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHRoomManagerAccountTests.m; sourceTree = "<group>"; };
 		B0D3D9431DBB54FA009FEBEE /* ChatRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D3D9471DBB54FA009FEBEE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0D3D9491DBB54FA009FEBEE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +99,10 @@
 		B0D3D96A1DBB54FB009FEBEE /* ChatRoomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D3D96E1DBB54FB009FEBEE /* ChatRoomUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRoomUITests.m; sourceTree = "<group>"; };
 		B0D3D9701DBB54FB009FEBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0D933751DC5337300A4A7E0 /* KCHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHUser.h; sourceTree = "<group>"; };
+		B0D933761DC5337300A4A7E0 /* KCHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHUser.m; sourceTree = "<group>"; };
+		B0D933781DC540CD00A4A7E0 /* KCHError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHError.h; sourceTree = "<group>"; };
+		B0D933791DC540CD00A4A7E0 /* KCHError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHError.m; sourceTree = "<group>"; };
 		CF7B593A233860534406EB1B /* libPods-ChatRoomUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatRoomUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA455550B86EC942E21F67F /* Pods-ChatRoomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoomTests/Pods-ChatRoomTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FDD3500698DB1E8BCBB36499 /* Pods-ChatRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatRoom/Pods-ChatRoom.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B02A17A21DC3C07C00AD9764 /* KCHSingleton.h */,
+				B0524AE81DC5126900D3BC20 /* KCHMacros.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -156,6 +175,26 @@
 				B02A17A51DC3C0A300AD9764 /* KCHViews.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B02A17A81DC3C35F00AD9764 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0524AE51DC4F7C400D3BC20 /* KCHRoom.h */,
+				B0524AE61DC4F7C400D3BC20 /* KCHRoom.m */,
+				B0D933751DC5337300A4A7E0 /* KCHUser.h */,
+				B0D933761DC5337300A4A7E0 /* KCHUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B02A17A91DC3C36900AD9764 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B0524AE21DC4F1C400D3BC20 /* KCHRoomsManager.h */,
+				B0524AE31DC4F1C400D3BC20 /* KCHRoomsManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		B066D8031DBCC67B00474A4E /* ViewControllers */ = {
@@ -214,6 +253,8 @@
 				B0D3D94A1DBB54FA009FEBEE /* AppDelegate.m */,
 				B066D8031DBCC67B00474A4E /* ViewControllers */,
 				B066D8341DBCD84500474A4E /* Views */,
+				B02A17A91DC3C36900AD9764 /* Managers */,
+				B02A17A81DC3C35F00AD9764 /* Models */,
 				B02A17A11DC3C06400AD9764 /* Macros */,
 				B02A17A31DC3C08F00AD9764 /* Utils */,
 				B0D3D9521DBB54FA009FEBEE /* Main.storyboard */,
@@ -223,6 +264,8 @@
 				B0D3D9461DBB54FA009FEBEE /* Supporting Files */,
 				B08814051DBD13C8002AD07B /* KCHReplaceSegue.h */,
 				B08814061DBD13C8002AD07B /* KCHReplaceSegue.m */,
+				B0D933781DC540CD00A4A7E0 /* KCHError.h */,
+				B0D933791DC540CD00A4A7E0 /* KCHError.m */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -241,6 +284,9 @@
 			children = (
 				B0D3D9631DBB54FA009FEBEE /* ChatRoomTests.m */,
 				B0D3D9651DBB54FA009FEBEE /* Info.plist */,
+				B0C4E81D1DC5DCD700FFAA58 /* ChatRoomTests-Prefix.pch */,
+				B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */,
+				B0C4E8201DC6630800FFAA58 /* KCHRoomManagerAccountTests.m */,
 			);
 			path = ChatRoomTests;
 			sourceTree = "<group>";
@@ -335,13 +381,13 @@
 					};
 					B0D3D95E1DBB54FA009FEBEE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 8BRJQG5S9A;
+						DevelopmentTeam = UTCMZSR924;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B0D3D9421DBB54FA009FEBEE;
 					};
 					B0D3D9691DBB54FB009FEBEE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 8BRJQG5S9A;
+						DevelopmentTeam = UTCMZSR924;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B0D3D9421DBB54FA009FEBEE;
 					};
@@ -543,6 +589,10 @@
 				B066D8311DBCCA1B00474A4E /* KCHChatingRoomsTableViewController.m in Sources */,
 				B02A17A61DC3C0A300AD9764 /* KCHViews.m in Sources */,
 				B066D8321DBCCA1B00474A4E /* KCHChatViewController.m in Sources */,
+				B0D9337A1DC540CD00A4A7E0 /* KCHError.m in Sources */,
+				B0524AE41DC4F1C400D3BC20 /* KCHRoomsManager.m in Sources */,
+				B0524AE71DC4F7C400D3BC20 /* KCHRoom.m in Sources */,
+				B0D933771DC5337300A4A7E0 /* KCHUser.m in Sources */,
 				B0D3D94B1DBB54FA009FEBEE /* AppDelegate.m in Sources */,
 				B066D83F1DBCEBD000474A4E /* KCHAccountSettingsTableViewController.m in Sources */,
 				B0D3D9481DBB54FA009FEBEE /* main.m in Sources */,
@@ -556,6 +606,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D3D9641DBB54FA009FEBEE /* ChatRoomTests.m in Sources */,
+				B0C4E8211DC6630800FFAA58 /* KCHRoomManagerAccountTests.m in Sources */,
+				B0C4E81F1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,10 +779,12 @@
 			baseConfigurationReference = CFA455550B86EC942E21F67F /* Pods-ChatRoomTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8BRJQG5S9A;
+				DEVELOPMENT_TEAM = UTCMZSR924;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChatRoomTests/ChatRoomTests-Prefix.pch";
 				INFOPLIST_FILE = ChatRoomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.kuoch.ChatRoomTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatRoom.app/ChatRoom";
 			};
@@ -741,10 +795,12 @@
 			baseConfigurationReference = 9A628D0FBFB3A0125B2B7843 /* Pods-ChatRoomTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8BRJQG5S9A;
+				DEVELOPMENT_TEAM = UTCMZSR924;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChatRoomTests/ChatRoomTests-Prefix.pch";
 				INFOPLIST_FILE = ChatRoomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.kuoch.ChatRoomTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatRoom.app/ChatRoom";
 			};
@@ -754,10 +810,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 841792228BC65E17E7C72EA2 /* Pods-ChatRoomUITests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 8BRJQG5S9A;
+				DEVELOPMENT_TEAM = UTCMZSR924;
 				INFOPLIST_FILE = ChatRoomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.kuoch.ChatRoomUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoomUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = ChatRoom;
 			};
@@ -767,10 +823,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AECA9406256269016A4FCF6 /* Pods-ChatRoomUITests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 8BRJQG5S9A;
+				DEVELOPMENT_TEAM = UTCMZSR924;
 				INFOPLIST_FILE = ChatRoomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = test.kuoch.ChatRoomUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuoch.ChatRoomUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = ChatRoom;
 			};
