@@ -31,7 +31,7 @@
 }
 
 - (void)testCreateLeave {
-    NSString *roomId = [self createRoom:YES];
+    NSString *roomId = [self createRoomWithPassword:nil shouldSuccess:YES];
     
     [self logout];
     
@@ -47,13 +47,13 @@
 }
 
 - (void)testCreateJoinLeave {
-    NSString *roomId = [self createRoom:YES];
+    NSString *roomId = [self createRoomWithPassword:nil shouldSuccess:YES];
 
     [self logout];
 
     [self loginOrSignUpUser:ALWAYS_EXIST_2_EMAIL password:ALWAYS_EXIST_2_PASSWORD];
 
-    [self join:roomId];
+    [self join:roomId withPassword:nil shouldSuccess:YES];
 
     [self logout];
 
@@ -81,30 +81,48 @@
         [self leaveRoom:room.uid];
     }
     NSMutableArray<NSString *> *roomIds = [NSMutableArray array];
-    [roomIds addObject:[self createRoom:YES]];
-    [roomIds addObject:[self createRoom:YES]];
-    [roomIds addObject:[self createRoom:YES]];
-    [roomIds addObject:[self createRoom:YES]];
-    [roomIds addObject:[self createRoom:YES]];
-    [self createRoom:NO];
-    
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [self createRoomWithPassword:nil shouldSuccess:NO];
+
     [self logout];
     [self loginWithEmail:ALWAYS_EXIST_1_EMAIL password:ALWAYS_EXIST_1_PASSWORD];
-    [self createRoom:NO];
+    [self createRoomWithPassword:nil shouldSuccess:NO];
     [self leaveRoom:roomIds.lastObject];
     [roomIds removeLastObject];
-    [roomIds addObject:[self createRoom:YES]];
-    [self createRoom:NO];
-    [self leaveRoom:roomIds.lastObject];
-    [roomIds removeLastObject];
-    [self leaveRoom:roomIds.lastObject];
-    [roomIds removeLastObject];
+    [roomIds addObject:[self createRoomWithPassword:nil shouldSuccess:YES]];
+    [self createRoomWithPassword:nil shouldSuccess:NO];
     [self leaveRoom:roomIds.lastObject];
     [roomIds removeLastObject];
     [self leaveRoom:roomIds.lastObject];
     [roomIds removeLastObject];
     [self leaveRoom:roomIds.lastObject];
     [roomIds removeLastObject];
+    [self leaveRoom:roomIds.lastObject];
+    [roomIds removeLastObject];
+    [self leaveRoom:roomIds.lastObject];
+    [roomIds removeLastObject];
+}
+
+- (void)testPassword {
+    NSString *roomId = [self createRoomWithPassword:@"Correct PW" shouldSuccess:YES];
+
+    [self logout];
+
+    [self loginOrSignUpUser:ALWAYS_EXIST_2_EMAIL password:ALWAYS_EXIST_2_PASSWORD];
+
+    [self join:roomId withPassword:nil shouldSuccess:NO];
+    [self join:roomId withPassword:@"Wrong PW" shouldSuccess:NO];
+    [self join:roomId withPassword:@"Correct PW" shouldSuccess:YES];
+
+    [self logout];
+
+    [self loginWithEmail:ALWAYS_EXIST_1_EMAIL password:ALWAYS_EXIST_1_PASSWORD];
+
+    [self leaveRoom:roomId];
 }
 
 - (void)loginOrSignUpUser:(NSString *)email password:(NSString *)password {
@@ -143,10 +161,10 @@
     
 }
 
-- (NSString *)createRoom:(BOOL)shouldSuccess {
+- (NSString *)createRoomWithPassword:(NSString *)password shouldSuccess:(BOOL)shouldSuccess {
     XCTestExpectation *expect = [self expectationWithDescription:@"Create room"];
     __block NSString *_roomId;
-    [[KCHRoomsManager sharedManager] creatRoom:@"room name" password:nil completion:^(KCHRoom *room, NSError *error) {
+    [[KCHRoomsManager sharedManager] creatRoom:@"room name" password:password completion:^(KCHRoom *room, NSError *error) {
         if (shouldSuccess) {
             XCTAssertNil(error, @"Create failed:%@", error.localizedDescription);
             XCTAssertNotNil(room, @"Null room!");
@@ -211,19 +229,24 @@
     XCTAssertNil([self findRoomInChatingRooms:roomId], @"Room is still in the list!");
 }
 
-- (void)join:(NSString *)roomId {
+- (void)join:(NSString *)roomId withPassword:(NSString *)password shouldSuccess:(BOOL)shouldSuccess{
     KCHRoom *room = [self findRoomInJoinableRooms:roomId];
     XCTAssertNotNil(room, @"Room is not in the list");
     XCTestExpectation *expect = [self expectationWithDescription:@"Join room"];
-    [[KCHRoomsManager sharedManager] joinRoom:room password:nil completion:^(NSError *error) {
-        XCTAssertNil(error, @"Join failed:%@", error.localizedDescription);
+    [[KCHRoomsManager sharedManager] joinRoom:room password:password completion:^(NSError *error) {
+        if (shouldSuccess) {
+            XCTAssertNil(error, @"Join failed:%@", error.localizedDescription);
+        } else {
+            XCTAssertNotNil(error, @"Join shouldn't success");
+        }
         [expect fulfill];
     }];
     [self waitForExpectationsWithTimeout:3 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error, @"Wait failed:%@", error);
     }];
     
-    XCTAssertNotNil([self findRoomInChatingRooms:roomId], @"Room is not in the list!");
-    
+    if (shouldSuccess) {
+        XCTAssertNotNil([self findRoomInChatingRooms:roomId], @"Room is not in the list!");
+    }
 }
 @end

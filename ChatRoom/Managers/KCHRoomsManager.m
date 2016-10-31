@@ -141,7 +141,7 @@ IMPLEMENT_SINGLETON_FOR_MANAGER_CLASS(KCHRoomsManager)
 - (void)joinRoom:(KCHRoom *)room
         password:(NSString *)password
       completion:(void (^)(NSError *error))completion {
-    if (room.password != nil && ![password isEqualToString:room.password]) {
+    if (room.password != nil && room.password.length != 0 && ![room.password isEqualToString:password]) {
         completion([KCHError errorWithCode:KCHErrorCodeInvalidPassword
                                description:@"Invalid Password"]);
         return;

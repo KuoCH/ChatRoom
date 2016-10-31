@@ -33,6 +33,7 @@
     if (self) {
         self.uid = uid;
         self.name = info[KEY_NAME]; // _Nonnull
+        self.password = info[KEY_PASSWORD];
         NSDictionary *participantMap = info[KEY_PARTICIPANT];
         self.participant = participantMap ? [participantMap allKeys].mutableCopy : [NSMutableArray array];
     }
