@@ -118,6 +118,8 @@
     [self join:roomId withPassword:@"Wrong PW" shouldSuccess:NO];
     [self join:roomId withPassword:@"Correct PW" shouldSuccess:YES];
 
+    [self leaveRoom:roomId];
+
     [self logout];
 
     [self loginWithEmail:ALWAYS_EXIST_1_EMAIL password:ALWAYS_EXIST_1_PASSWORD];
