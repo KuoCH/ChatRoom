@@ -7,11 +7,12 @@
 //
 
 #import "KCHChatingRoomsTableViewController.h"
+#import "KCHRoomsManager.h"
 #import "KCHRoomTableViewCell.h"
 #import "KCHChatViewController.h"
 
 @interface KCHChatingRoomsTableViewController () {
-    NSArray *_data;
+    NSArray<KCHRoom *> *_rooms;
 }
 
 @end
@@ -19,22 +20,13 @@
 @implementation KCHChatingRoomsTableViewController
 
 - (void)viewDidLoad {
-    // TODO: replace these with Room Mode
-    _data = @[
-              @{
-                  @"name": @"Room 1",
-                  @"count": @(3)
-                  },
-              @{
-                  @"name": @"Room 2",
-                  @"count": @(2)
-                  },
-              @{
-                  @"name": @"Room 3",
-                  @"count": @(5)
-                  },
-              ];
+    _rooms = @[];
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    _rooms = [KCHRoomsManager sharedManager].chatingRooms;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +41,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _data.count;
+    return _rooms.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,9 +49,9 @@
     if (!cell) {
         cell = [[KCHRoomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ROOM_CELL_IDENTIFIER];
     }
-    NSDictionary *room = _data[indexPath.row];
-    cell.roomNameLabel.text = room[@"name"];
-    cell.peopleCountLabel.text = [(NSNumber *)room[@"count"] stringValue];
+    KCHRoom *room = _rooms[indexPath.row];
+    cell.roomNameLabel.text = room.name;
+    cell.peopleCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)room.participant.count];
     cell.tag = indexPath.row;
     return cell;
 }
@@ -70,7 +62,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:TO_CHAT_SEGUE_IDENTIFIER]) {
         KCHChatViewController *vc = segue.destinationViewController;
-        vc.roomName = _data[((KCHRoomTableViewCell *)sender).tag][@"name"];
+        vc.room = _rooms[((KCHRoomTableViewCell *)sender).tag];
     }
 }
 

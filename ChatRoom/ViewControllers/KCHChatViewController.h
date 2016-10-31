@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KCHRoomsManager.h"
 #define TO_CHAT_SEGUE_IDENTIFIER @"toChat"
 
 @interface KCHChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 // TODO: replace this with Room Mode
-@property(nonatomic, strong) NSString* roomName;
+@property(nonatomic, strong) KCHRoom* room;
 @property (weak, nonatomic) IBOutlet UITableView *messageTable;
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;

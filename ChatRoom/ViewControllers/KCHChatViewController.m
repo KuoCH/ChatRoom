@@ -51,7 +51,7 @@
     [_dateFormatter setDateFormat:@"MM/d hh:mm:ss"];
     [super viewDidLoad];
     // TODO: replace this with Room Mode
-    self.navigationItem.title = self.roomName;
+    self.navigationItem.title = self.room.name;
     // To reverse table view:
     // Ref: http://stackoverflow.com/a/36762194
     self.messageTable.transform = CGAffineTransformMakeRotation(-M_PI);
@@ -147,8 +147,16 @@
 
 
 - (IBAction)toLeave:(id)sender {
-    // TODO: remove this chat room from this user, perform segue in completion
-    [self.navigationController popViewControllerAnimated:YES];
+    WEAK_SELF
+    [KCHViews showLoadingInView:self.view];
+    [[KCHRoomsManager sharedManager] leaveRoom:self.room completion:^(NSError *error) {
+        [KCHViews hideLoadingInView:_weakSelf.view];
+        if (error) {
+            [KCHViews showAlertInView:_weakSelf title:@"Failed to leave room" message:error.localizedDescription handler:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
 }
 
 - (IBAction)toSendMsg:(id)sender {
