@@ -151,7 +151,7 @@
         XCTAssertNil(error, @"Login failed:%@", error.localizedDescription);
         [expect fulfill];
     }];
-    [self waitForExpectationsWithTimeout:3 handler:^(NSError * _Nullable error) {
+    [self waitForExpectationsWithTimeout:8 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error, @"Wait failed:%@", error.localizedDescription);
     }];
 

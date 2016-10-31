@@ -64,6 +64,7 @@
         }
         if (allFound) {
             [expect fulfill];
+            expect = nil;
         }
     }];
     [self waitForExpectationsWithTimeout:4 handler:^(NSError * _Nullable error) {
@@ -96,7 +97,9 @@
                     [mutableMessages removeObjectAtIndex:i];
                 }
             }
-            XCTAssertTrue(found, @"Can't find \"%@\"", s);
+            if (!found) {
+                NSLog(@"Can't find \"%@\"", s);
+            }
             allFound &= found;
         }
         if (allFound) {

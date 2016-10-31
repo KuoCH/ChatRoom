@@ -47,6 +47,14 @@
                BlueprintName = "ChatRoomUITests"
                ReferencedContainer = "container:ChatRoom.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ChatRoomUITests">
+               </Test>
+               <Test
+                  Identifier = "ChatRoomUITests/testExample">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

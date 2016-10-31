@@ -29,8 +29,6 @@
 		B0D3D9541DBB54FA009FEBEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9521DBB54FA009FEBEE /* Main.storyboard */; };
 		B0D3D9561DBB54FA009FEBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9551DBB54FA009FEBEE /* Assets.xcassets */; };
 		B0D3D9591DBB54FA009FEBEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0D3D9571DBB54FA009FEBEE /* LaunchScreen.storyboard */; };
-		B0D3D9641DBB54FA009FEBEE /* ChatRoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D9631DBB54FA009FEBEE /* ChatRoomTests.m */; };
-		B0D3D96F1DBB54FB009FEBEE /* ChatRoomUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D3D96E1DBB54FB009FEBEE /* ChatRoomUITests.m */; };
 		B0D933771DC5337300A4A7E0 /* KCHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D933761DC5337300A4A7E0 /* KCHUser.m */; };
 		B0D9337A1DC540CD00A4A7E0 /* KCHError.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D933791DC540CD00A4A7E0 /* KCHError.m */; };
 		CB44F3CA92B4CC93EE3CEF62 /* libPods-ChatRoom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E19DFB8318CA5C0D70175E /* libPods-ChatRoom.a */; };
@@ -102,10 +100,8 @@
 		B0D3D9581DBB54FA009FEBEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0D3D95A1DBB54FA009FEBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D3D95F1DBB54FA009FEBEE /* ChatRoomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatRoomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0D3D9631DBB54FA009FEBEE /* ChatRoomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRoomTests.m; sourceTree = "<group>"; };
 		B0D3D9651DBB54FA009FEBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D3D96A1DBB54FB009FEBEE /* ChatRoomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatRoomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0D3D96E1DBB54FB009FEBEE /* ChatRoomUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatRoomUITests.m; sourceTree = "<group>"; };
 		B0D3D9701DBB54FB009FEBEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0D933751DC5337300A4A7E0 /* KCHUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCHUser.h; sourceTree = "<group>"; };
 		B0D933761DC5337300A4A7E0 /* KCHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCHUser.m; sourceTree = "<group>"; };
@@ -294,7 +290,6 @@
 		B0D3D9621DBB54FA009FEBEE /* ChatRoomTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0D3D9631DBB54FA009FEBEE /* ChatRoomTests.m */,
 				B0D3D9651DBB54FA009FEBEE /* Info.plist */,
 				B0C4E81D1DC5DCD700FFAA58 /* ChatRoomTests-Prefix.pch */,
 				B0C4E81E1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m */,
@@ -307,7 +302,6 @@
 		B0D3D96D1DBB54FB009FEBEE /* ChatRoomUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B0D3D96E1DBB54FB009FEBEE /* ChatRoomUITests.m */,
 				B0D3D9701DBB54FB009FEBEE /* Info.plist */,
 			);
 			path = ChatRoomUITests;
@@ -620,7 +614,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D3D9641DBB54FA009FEBEE /* ChatRoomTests.m in Sources */,
 				B0C4E8211DC6630800FFAA58 /* KCHRoomManagerAccountTests.m in Sources */,
 				B07516EB1DC7C4D40079BEC5 /* KCHMessagesManagerTests.m in Sources */,
 				B0C4E81F1DC5DD8600FFAA58 /* KCHRoomManagerRoomTests.m in Sources */,
@@ -631,7 +624,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D3D96F1DBB54FB009FEBEE /* ChatRoomUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
